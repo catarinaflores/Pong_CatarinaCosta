@@ -1,0 +1,132 @@
+[gd_scene load_steps=11 format=3 uid="uid://cx3i0kmg8q1mx"]
+
+[ext_resource type="Script" path="res://level/level.gd" id="1_omht8"]
+[ext_resource type="FontFile" uid="uid://ciillxb7dxalo" path="res://pong_assets/PoetsenOne-Regular.ttf" id="2_ieuag"]
+[ext_resource type="PackedScene" uid="uid://crqx3pyo7h4gb" path="res://player/player_paddle.tscn" id="3_l7eug"]
+[ext_resource type="PackedScene" uid="uid://c0j4vg86eg8k" path="res://opponent/opponent_padle.tscn" id="4_4mt63"]
+[ext_resource type="PackedScene" uid="uid://necasmjsqeya" path="res://ball/ball.tscn" id="5_pu5qg"]
+[ext_resource type="AudioStream" uid="uid://buym7v1t8jhsk" path="res://pong_assets/ping_pong_8bit_beeep.ogg" id="6_ejqsp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_haej8"]
+font = ExtResource("2_ieuag")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_o1bxh"]
+font = ExtResource("2_ieuag")
+font_size = 40
+font_color = Color(0.545098, 0.384314, 0.690196, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vy4x"]
+size = Vector2(1185, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73i53"]
+size = Vector2(46, 648)
+
+[node name="Level" type="Node"]
+script = ExtResource("1_omht8")
+
+[node name="background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.768627, 0.415686, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="PlayerScore" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_haej8")
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 150
+
+[node name="OpponentScore" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_haej8")
+
+[node name="CountdownLabel" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -82.0
+offset_right = 115.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Countdown"
+label_settings = SubResource("LabelSettings_o1bxh")
+horizontal_alignment = 1
+
+[node name="PlayerName" type="Label" parent="."]
+unique_name_in_owner = true
+offset_right = 231.0
+offset_bottom = 51.0
+text = "Player Name"
+label_settings = SubResource("LabelSettings_haej8")
+
+[node name="PlayerPaddle" parent="." instance=ExtResource("3_l7eug")]
+position = Vector2(23, 324)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="WallTop" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(571.5, -11)
+shape = SubResource("RectangleShape2D_0vy4x")
+
+[node name="WallBottom" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(572, 660)
+shape = SubResource("RectangleShape2D_0vy4x")
+
+[node name="OpponentPadle" parent="." instance=ExtResource("4_4mt63")]
+position = Vector2(1134, 324)
+
+[node name="Ball" parent="." instance=ExtResource("5_pu5qg")]
+unique_name_in_owner = true
+position = Vector2(577, 324)
+
+[node name="WallLeft" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft"]
+position = Vector2(-23, 324)
+shape = SubResource("RectangleShape2D_73i53")
+
+[node name="WallRight" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight"]
+position = Vector2(1175, 324)
+shape = SubResource("RectangleShape2D_73i53")
+
+[node name="CountdownTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="ScoreSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_ejqsp")
+
+[connection signal="body_entered" from="WallLeft" to="." method="_on_wall_left_body_entered" flags=18]
+[connection signal="body_entered" from="WallRight" to="." method="_on_wall_right_body_entered" flags=18]
+[connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout" flags=18]
