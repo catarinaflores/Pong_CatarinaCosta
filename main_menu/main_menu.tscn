@@ -41,13 +41,24 @@ custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 placeholder_text = "Enter Player Name"
 
+[node name="Player2NameField" type="TextEdit" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+placeholder_text = "Enter Player 2 Name"
+
 [node name="StartGameButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Start Game"
+
+[node name="MultiplayerButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Multiplayer"
 
 [node name="QuitGameButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/MultiplayerButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/QuitGameButton" to="." method="_on_quit_game_button_pressed"]
