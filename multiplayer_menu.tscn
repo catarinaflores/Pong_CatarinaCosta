@@ -51,4 +51,9 @@ placeholder_text = "Enter Player 2 Name"
 layout_mode = 2
 text = "Start"
 
+[node name="QuitButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit To Main Menu"
+
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/MultiplayerButton" to="." method="_on_multiplayer_button_pressed" flags=18]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

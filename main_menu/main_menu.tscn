@@ -45,7 +45,7 @@ text = "Multiplayer"
 
 [node name="QuitGameButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Quit"
+text = "Exit"
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/MultiplayerButton" to="." method="_on_multiplayer_button_pressed"]
