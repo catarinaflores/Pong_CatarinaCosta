@@ -15,7 +15,7 @@ var direction := 0.0
 	# add_child(my_rect)
 
 func _physics_process(_delta: float) -> void:
-	position.x = 0
+	
 	velocity.y = direction * speed
 	move_and_slide()
 	position.x = start_position.x
