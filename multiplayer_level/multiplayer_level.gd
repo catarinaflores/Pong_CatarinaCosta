@@ -16,7 +16,7 @@ var opponent_score := 0
 
 func _ready() -> void:
 	player_name.text = GameManager.player1_name
-	player_name.text = GameManager.player2_name
+	player_name_2.text = GameManager.player2_name
 
 func _process(_delta: float) -> void:
 	countdown_label.text = str(ceil(countdown_timer.time_left))

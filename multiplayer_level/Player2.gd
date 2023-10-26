@@ -17,4 +17,4 @@ func _physics_process(_delta: float) -> void:
 
 
 func _unhandled_input(_event: InputEvent) -> void:
-	direction = Input.get_axis("cima", "baixo")
+	direction = Input.get_axis("ui_Cima", "ui_Baixo")
