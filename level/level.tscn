@@ -80,25 +80,25 @@ horizontal_alignment = 1
 
 [node name="PlayerName" type="Label" parent="."]
 unique_name_in_owner = true
-offset_right = 231.0
-offset_bottom = 51.0
-text = "Player Name"
-label_settings = SubResource("LabelSettings_haej8")
-
-[node name="CPU" type="Label" parent="."]
-unique_name_in_owner = true
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -239.0
 offset_bottom = 51.0
 grow_horizontal = 0
-text = "CPU"
+text = "Player Name"
 label_settings = SubResource("LabelSettings_haej8")
 horizontal_alignment = 2
 
+[node name="CPU" type="Label" parent="."]
+unique_name_in_owner = true
+offset_right = 84.0
+offset_bottom = 51.0
+text = "CPU"
+label_settings = SubResource("LabelSettings_haej8")
+
 [node name="PlayerPaddle" parent="." instance=ExtResource("1_jxbcf")]
-position = Vector2(23, 324)
+position = Vector2(1134, 324)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -111,7 +111,7 @@ position = Vector2(572, 660)
 shape = SubResource("RectangleShape2D_0vy4x")
 
 [node name="OpponentPadle" parent="." node_paths=PackedStringArray("ball") instance=ExtResource("2_tpio4")]
-position = Vector2(1134, 324)
+position = Vector2(20, 324)
 ball = NodePath("../Ball")
 
 [node name="Ball" parent="." instance=ExtResource("3_8x0at")]

@@ -7,10 +7,10 @@ extends CharacterBody2D
 
 func _physics_process(delta: float) -> void:
 	var collision := move_and_collide(velocity * delta)
-	
 	if collision:
-		velocity = 2 * velocity.bounce(collision.get_normal())
+		velocity = velocity.bounce(collision.get_normal()) * 50
 		collision_sound.play()
+		if collision.
 
 func stop_moving() -> void:
 	velocity = Vector2.ZERO

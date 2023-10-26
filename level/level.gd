@@ -10,6 +10,7 @@ var opponent_score := 0
 @onready var countdown_label: Label = %CountdownLabel
 @onready var score_sound: AudioStreamPlayer = %ScoreSound
 @onready var player_name: Label = %PlayerName
+@onready var wall_top: CollisionShape2D = %WallTop
 
 
 func _ready() -> void:
@@ -25,6 +26,8 @@ func _on_wall_left_body_entered(body: Node2D) -> void:
 	countdown_label.show()
 	opponent_score += 1
 	opponent_label.text = str(opponent_score)
+	if opponent_score == 5:
+		get_tree().quit()
 	score_sound.play()
 
 
@@ -35,6 +38,8 @@ func _on_wall_right_body_entered(body: Node2D) -> void:
 	countdown_label.show()
 	player_score += 1
 	player_label.text = str(player_score)
+	if player_score == 5:
+		get_tree().quit()
 	score_sound.play()
 
 
