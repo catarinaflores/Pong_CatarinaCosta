@@ -35,21 +35,9 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PlayerNameField" type="TextEdit" parent="VBoxContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-placeholder_text = "Enter Player Name"
-
-[node name="Player2NameField" type="TextEdit" parent="VBoxContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-placeholder_text = "Enter Player 2 Name"
-
 [node name="StartGameButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Start Game"
+text = "Singleplayer"
 
 [node name="MultiplayerButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
