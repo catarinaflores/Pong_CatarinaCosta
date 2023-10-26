@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed := 250
+@export var speed := GameManager.speed
 @export var ball: Node2D
 @onready var start_position := position
 

@@ -45,9 +45,24 @@ placeholder_text = "Enter Player Name"
 layout_mode = 2
 text = "Start"
 
+[node name="EasyModeButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Easy"
+
+[node name="MediumModeButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Medium"
+
+[node name="HardModeButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Hard"
+
 [node name="QuitButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit To Main Menu"
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed" flags=18]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/EasyModeButton" to="." method="_on_easy_mode_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/MediumModeButton" to="." method="_on_medium_mode_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/HardModeButton" to="." method="_on_hard_mode_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

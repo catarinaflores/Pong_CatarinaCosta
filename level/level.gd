@@ -27,6 +27,7 @@ func _on_wall_left_body_entered(body: Node2D) -> void:
 	opponent_label.text = str(opponent_score)
 	score_sound.play()
 
+
 func _on_wall_right_body_entered(body: Node2D) -> void:
 	body.position = get_viewport().size / 2
 	ball.stop_moving()
