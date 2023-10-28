@@ -10,7 +10,8 @@ var opponent_score := 0
 @onready var countdown_label: Label = %CountdownLabel
 @onready var score_sound: AudioStreamPlayer = %ScoreSound
 @onready var player_name: Label = %PlayerName
-@onready var wall_top: CollisionShape2D = %WallTop
+@onready var walls: StaticBody2D = %Walls
+
 
 
 func _ready() -> void:

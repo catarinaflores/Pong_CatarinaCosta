@@ -100,13 +100,14 @@ label_settings = SubResource("LabelSettings_haej8")
 [node name="PlayerPaddle" parent="." instance=ExtResource("1_jxbcf")]
 position = Vector2(1134, 324)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Walls" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
 
-[node name="WallTop" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="WallTop" type="CollisionShape2D" parent="Walls"]
 position = Vector2(571.5, -11)
 shape = SubResource("RectangleShape2D_0vy4x")
 
-[node name="WallBottom" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="WallBottom" type="CollisionShape2D" parent="Walls"]
 position = Vector2(572, 660)
 shape = SubResource("RectangleShape2D_0vy4x")
 
